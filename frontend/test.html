@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .toast {
+        display: none;
+      }
+
+      .toast.show {
+        display: block;
+        animation: slide-in 0.5s ease-out forwards;
+      }
+
+      .toast.hide {
+        animation: slide-out 0.5s ease-in forwards;
+      }
+
+      @keyframes slide-in {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slide-out {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="fixed bottom-0 right-0 mb-4 mr-4 bg-gray-800 text-white p-4 rounded shadow-md toast"
+    >
+      <p class="font-bold mb-2">Toast title</p>
+      <p class="text-sm">Toast message goes here.</p>
+    </div>
+  </body>
+</html>
+
+<script>
+    function showToast() {
+  var toast = document.querySelector('.toast');
+  toast.classList.remove('hide');
+  toast.classList.add('show');
+  setTimeout(function() {
+    toast.classList.remove('show');
+    toast.classList.add('hide');
+  }, 3000); // change 3000 to the desired timeout in milliseconds
+}
+showToast();
+</script>
