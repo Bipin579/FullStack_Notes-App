@@ -4,8 +4,7 @@ const userSchema = mongoose.Schema({
   name: { type: String, required: [true, "Please provide name"] },
   email: {
     type: String,
-    required: [true, "Please provide email"],
-    unique: true,
+    required: [true, "Please provide email"]
   },
   pass: { type: String, required: [true, "Please provide the password"] },
 });

@@ -42,7 +42,7 @@ notesRoute.delete("/:id", async (req, res) => {
 
 notesRoute.patch("/:id", async (req, res) => {
     try {
-       await notesModel.findByIdAndUpdate(req.params.id,req.body);
+       const data= await notesModel.findByIdAndUpdate(req.params.id,req.body);
         res.send({ success: true,message:"Successfully updated"});
     } catch (error) {
         res.send({ error: error.message });
